@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #fff8f0;
+  }
+  
+  .dog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+  }
+  
+  .dog-card {
+    background-color: white;
+    padding: 1rem;
+    width: 45%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .dog-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .learn-btn {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .learn-btn:hover {
+    background-color: #388e3c;
+  }
+  
+  .details {
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .details img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .details ul li {
+    margin: 0.5rem 0;
+  }
+  
+  .adoption-form input,
+  .adoption-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .adoption-form button {
+    background-color: #2196F3;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .adoption-form button:hover {
+    background-color: #1976D2;
+  }
+  
+  .back-btn {
+    background: none;
+    color: #2196F3;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none;
+  }

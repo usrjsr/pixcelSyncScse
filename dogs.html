@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DOGS</title>
+  <link rel="stylesheet" href="dogs.css">
+</head>
+<body>
+
+  <div class="dog-container">
+    <div class="dog-card" data-dog="japanese">
+      <img src="Japanese-Spitz.jpg" alt="Japanese Spitz">
+      <h2>Japanese Spitz</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+
+    <div class="dog-card" data-dog="bolognese">
+      <img src="dogbologonese.jpg" alt="Bolognese">
+      <h2>Bolognese</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+
+    <div class="dog-card" data-dog="westhighland">
+      <img src="westhighlandterrier.jpg" alt="West Highland Terrier">
+      <h2>West Highland Terrier</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+
+    <div class="dog-card" data-dog="pug">
+      <img src="Pug.jpg" alt="Pug">
+      <h2>Pug</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+  </div>
+
+  <!-- Learn More Section -->
+  <div class="details hidden">
+    <button class="back-btn">← Back to List</button>
+    <img id="detail-img" src="" alt="Dog Image">
+    <h2 id="detail-name">Dog Name</h2>
+    <ul>
+      <li><strong>Age:</strong> <span id="detail-age"></span></li>
+      <li><strong>Breed:</strong> <span id="detail-breed"></span></li>
+      <li><strong>Size:</strong> <span id="detail-size"></span></li>
+      <li><strong>Vaccination:</strong> <span id="detail-vaccine"></span></li>
+      <li><strong>Location:</strong> <span id="detail-location"></span></li>
+    </ul>
+
+    <form class="adoption-form">
+      <h3>Contact for Adoption</h3>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Why do you want to adopt?" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const dogs = {
+      japanese: {
+        name: "Japanese Spitz",
+        img: "Japanese-Spitz.jpg",
+        age: "2 years",
+        breed: "Japanese Spitz",
+        size: "Medium",
+        vaccine: "Yes",
+        location: "Delhi"
+      },
+      bolognese: {
+        name: "Bolognese",
+        img: "dogbologonese.jpg",
+        age: "1.5 years",
+        breed: "Bolognese",
+        size: "Small",
+        vaccine: "No",
+        location: "Mumbai"
+      },
+      westhighland: {
+        name: "West Highland Terrier",
+        img: "westhighlandterrier.jpg",
+        age: "3 years",
+        breed: "West Highland Terrier",
+        size: "Small",
+        vaccine: "Yes",
+        location: "Bangalore"
+      },
+      pug: {
+        name: "Pug",
+        img: "Pug.jpg",
+        age: "2.5 years",
+        breed: "Pug",
+        size: "Small",
+        vaccine: "Yes",
+        location: "Chennai"
+      }
+    };
+
+    document.querySelectorAll('.learn-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dogKey = btn.parentElement.getAttribute('data-dog');
+        const dog = dogs[dogKey];
+
+        document.getElementById('detail-img').src = dog.img;
+        document.getElementById('detail-name').textContent = dog.name;
+        document.getElementById('detail-age').textContent = dog.age;
+        document.getElementById('detail-breed').textContent = dog.breed;
+        document.getElementById('detail-size').textContent = dog.size;
+        document.getElementById('detail-vaccine').textContent = dog.vaccine;
+        document.getElementById('detail-location').textContent = dog.location;
+
+        document.querySelector('.dog-container').classList.add('hidden');
+        document.querySelector('.details').classList.remove('hidden');
+      });
+    });
+
+    document.querySelector('.back-btn').addEventListener('click', () => {
+      document.querySelector('.details').classList.add('hidden');
+      document.querySelector('.dog-container').classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CATS</title>
+  <link rel="stylesheet" href="cats.css">
+</head>
+<body>
+
+  <div class="cat-container">
+    <div class="cat-card" data-cat="setrix">
+      <img src="setrix cat.jpg" alt="Setrix Cat">
+      <h2>Setrix Cat</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+
+    <div class="cat-card" data-cat="turkishvan">
+      <img src="turkish van.jpg" alt="Turkish Van">
+      <h2>Turkish Van</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+
+    <div class="cat-card" data-cat="americancurl">
+      <img src="american-curl-header.jpg" alt="American Curl Cat">
+      <h2>American Curl</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+
+    <div class="cat-card" data-cat="whitepersian">
+      <img src="1280-633113756-white-persian-cats.jpg" alt="White Persian Cat">
+      <h2>White Persian</h2>
+      <button class="learn-btn">Learn More</button>
+    </div>
+  </div>
+
+  <div class="details hidden">
+    <button class="back-btn">← Back</button>
+    <img id="detail-img" src="" alt="">
+    <h2 id="detail-name"></h2>
+    <p><strong>Age:</strong> <span id="detail-age"></span></p>
+    <p><strong>Breed:</strong> <span id="detail-breed"></span></p>
+    <p><strong>Size:</strong> <span id="detail-size"></span></p>
+    <p><strong>Vaccinated:</strong> <span id="detail-vaccine"></span></p>
+    <p><strong>Location:</strong> <span id="detail-location"></span></p>
+  </div>
+
+  <script>
+    const cats = {
+      setrix: {
+        img: "setrix cat.jpg",
+        name: "Setrix Cat",
+        age: "2 years",
+        breed: "Setrix",
+        size: "Medium",
+        vaccine: "Yes",
+        location: "New York"
+      },
+      turkishvan: {
+        img: "turkish van.jpg",
+        name: "Turkish Van",
+        age: "3 years",
+        breed: "Turkish Van",
+        size: "Large",
+        vaccine: "No",
+        location: "Istanbul"
+      },
+      americancurl: {
+        img: "american-curl-header.jpg",
+        name: "American Curl",
+        age: "1.5 years",
+        breed: "American Curl",
+        size: "Small",
+        vaccine: "Yes",
+        location: "California"
+      },
+      whitepersian: {
+        img: "1280-633113756-white-persian-cats.jpg",
+        name: "White Persian",
+        age: "4 years",
+        breed: "Persian",
+        size: "Medium",
+        vaccine: "Yes",
+        location: "Paris"
+      }
+    };
+
+    document.querySelectorAll('.learn-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const catKey = btn.parentElement.getAttribute('data-cat');
+        const cat = cats[catKey];
+
+        document.getElementById('detail-img').src = cat.img;
+        document.getElementById('detail-name').textContent = cat.name;
+        document.getElementById('detail-age').textContent = cat.age;
+        document.getElementById('detail-breed').textContent = cat.breed;
+        document.getElementById('detail-size').textContent = cat.size;
+        document.getElementById('detail-vaccine').textContent = cat.vaccine;
+        document.getElementById('detail-location').textContent = cat.location;
+
+        document.querySelector('.cat-container').classList.add('hidden');
+        document.querySelector('.details').classList.remove('hidden');
+      });
+    });
+
+    document.querySelector('.back-btn').addEventListener('click', () => {
+      document.querySelector('.details').classList.add('hidden');
+      document.querySelector('.cat-container').classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>

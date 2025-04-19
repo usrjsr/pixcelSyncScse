@@ -1,36 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PetPals</title>
-</head>
-<body>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <div class="navBar">
-        <a href="#">Home</a>
-        <a href="#">Dogs</a>
-        <a href="#">Cats</a>
-        <a href="#">Birds</a>
-        <a href="#">Reptiles</a>
-        <a href="#">Cart</a>
-        <a href="#">Contact Us</a>
+      <a href="#">Home</a>
+      <a href="dogs.html">Dogs</a>
+      <a href="cats.html">Cats</a>
+      <a href="bird.html">Birds</a>
+      <a href="reptiles.html">Reptiles</a>
+      <a href="#">Cart</a>
+      <a href="#">Contact Us</a>
     </div>
 
-    <div class ="herosection">
+    <div class="herosection">
+      
+      <button class="arrow left">&#10094;</button>
+      <button class="arrow right">&#10095;</button>
 
+      <div class="heroImage"><img src="heroimage5.png" /></div>
+      <div class="heroImage"><img src="heroimage2.png" /></div>
+      <div class="heroImage"><img src="heroimage4.jpg" /></div>
+      
+      
+      
     </div>
 
-    <div class ="petTiles">
-
+    <div class="petTiles">
+      <div class="Dogs"><img src="dogTileImg.webp" /></div>
+      <div class="Cats"><img src="catTileImg.webp" /></div>
+      <div class="Reptiles"><img src="turtleTileImg.jpg" /></div>
+      <div class="Birds"><img src="birdTileImg.jpg" /></div>
     </div>
 
     <div class="ContactUs">
-        
+      <a href="contactUs.html"><button>Contact Us</button></a>
     </div>
-    
-    <div class="footer">
 
-    </div>
     
-</body>
+      <div class="footer">
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="#">Adopt a Pet</a>
+          <a href="#">Dogs</a>
+          <a href="#">Cats</a>
+          <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-section">
+          <h4>About Us</h4>
+          <a href="#">Our Mission</a>
+          <a href="#">Team</a>
+          <a href="#">Volunteer</a>
+        </div>
+        <div class="footer-section">
+          <h4>Help & Support</h4>
+          <a href="#">FAQs</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Contact Support</a>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+      
+      
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".heroImage");
+        const leftArrow = document.querySelector(".arrow.left");
+        const rightArrow = document.querySelector(".arrow.right");
+        let current = 0;
+
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+          });
+        }
+
+        leftArrow.addEventListener("click", () => {
+          current = (current - 1 + slides.length) % slides.length;
+          showSlide(current);
+        });
+
+        rightArrow.addEventListener("click", () => {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        });
+
+        // Initialize
+        showSlide(current);
+      });
+    </script>
+  </body>
 </html>
