@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dogs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#121212] text-white font-sans">
+
+    <nav class="flex flex-wrap justify-center items-center gap-6 bg-black/60 backdrop-blur-md sticky top-0 z-50 py-4 px-6 text-sm font-medium">
+      <a href="../index.html" class="hover:text-teal-400 transition">Home</a>
+      <a href="./dogs.html" class="hover:text-teal-400 transition">Dogs</a>
+      <a href="./cats.html" class="hover:text-teal-400 transition">Cats</a>
+      <a href="./bird.html" class="hover:text-teal-400 transition">Birds</a>
+      <a href="./reptiles.html" class="hover:text-teal-400 transition">Reptiles</a>
+      <a href="#" class="hover:text-teal-400 transition">Cart</a>
+      <a href="./contact.html" class="hover:text-teal-400 transition">Contact Us</a>
+    </nav>
+
+    <section class="dog-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-8">
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-dog="japanese">
+        <img src="../images/japaneseSpitz.jpg" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">Japanese Spitz</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-dog="bolognese">
+        <img src="../images/dogbologonese.jpg" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">Bolognese</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-dog="westhighland">
+        <img src="../images/westhighlandterrier.jpg" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">West Highland Terrier</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-dog="pug">
+        <img src="../images/Pug.jpg" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">Pug</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+    </section>
+
+    <section class="details hidden max-w-xl mx-auto bg-[#1e1e1e] rounded-lg p-8 mt-12 shadow-md space-y-4">
+      <button class="back-btn text-sm text-teal-400 hover:underline">← Back to List</button>
+      <img id="detail-img" src="" class="w-full h-64 object-cover rounded-md" />
+      <h2 id="detail-name" class="text-2xl font-bold text-center"></h2>
+      <ul class="space-y-1">
+        <li><span class="font-semibold">Age:</span> <span id="detail-age"></span></li>
+        <li><span class="font-semibold">Breed:</span> <span id="detail-breed"></span></li>
+        <li><span class="font-semibold">Size:</span> <span id="detail-size"></span></li>
+        <li><span class="font-semibold">Vaccination:</span> <span id="detail-vaccine"></span></li>
+        <li><span class="font-semibold">Location:</span> <span id="detail-location"></span></li>
+      </ul>
+
+      <form class="adoption-form flex flex-col gap-4 mt-6">
+        <h3 class="text-lg font-semibold text-center">Contact for Adoption</h3>
+        <input type="text" placeholder="Your Name" required class="bg-[#2a2a2a] text-white px-4 py-2 rounded" />
+        <input type="email" placeholder="Your Email" required class="bg-[#2a2a2a] text-white px-4 py-2 rounded" />
+        <textarea placeholder="Why do you want to adopt?" required class="bg-[#2a2a2a] text-white px-4 py-2 rounded h-24 resize-none"></textarea>
+        <button type="submit" class="bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded self-end">Submit</button>
+      </form>
+    </section>
+
+    <script>
+      const dogData = {
+        japanese: {
+          name: "Japanese Spitz",
+          img: "../images/JapaneseSpitz.jpg",
+          age: "2 years",
+          breed: "Japanese Spitz",
+          size: "Medium",
+          vaccine: "Yes",
+          location: "Delhi"
+        },
+        bolognese: {
+          name: "Bolognese",
+          img: "../images/dogbologonese.jpg",
+          age: "1.5 years",
+          breed: "Bolognese",
+          size: "Small",
+          vaccine: "No",
+          location: "Mumbai"
+        },
+        westhighland: {
+          name: "West Highland Terrier",
+          img: "../images/westhighlandterrier.jpg",
+          age: "3 years",
+          breed: "West Highland Terrier",
+          size: "Small",
+          vaccine: "Yes",
+          location: "Bangalore"
+        },
+        pug: {
+          name: "Pug",
+          img: "../images/Pug.jpg",
+          age: "2.5 years",
+          breed: "Pug",
+          size: "Small",
+          vaccine: "Yes",
+          location: "Chennai"
+        }
+      };
+
+      const elements = {
+        container: document.querySelector('.dog-container'),
+        details: document.querySelector('.details'),
+        img: document.getElementById('detail-img'),
+        name: document.getElementById('detail-name'),
+        age: document.getElementById('detail-age'),
+        breed: document.getElementById('detail-breed'),
+        size: document.getElementById('detail-size'),
+        vaccine: document.getElementById('detail-vaccine'),
+        location: document.getElementById('detail-location'),
+        form: document.querySelector('.adoption-form'),
+        backBtn: document.querySelector('.back-btn')
+      };
+
+      function showDogDetails(key) {
+        const dog = dogData[key];
+        if (!dog) return;
+
+        elements.img.src = dog.img;
+        elements.name.textContent = dog.name;
+        elements.age.textContent = dog.age;
+        elements.breed.textContent = dog.breed;
+        elements.size.textContent = dog.size;
+        elements.vaccine.textContent = dog.vaccine;
+        elements.location.textContent = dog.location;
+
+        elements.form.reset();
+        elements.container.classList.add('hidden');
+        elements.details.classList.remove('hidden');
+      }
+
+      function goBack() {
+        elements.details.classList.add('hidden');
+        elements.container.classList.remove('hidden');
+      }
+
+      document.querySelectorAll('.learn-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const key = button.closest('[data-dog]')?.dataset.dog;
+          if (key) showDogDetails(key);
+        });
+      });
+
+      elements.backBtn.addEventListener('click', goBack);
+    </script>
+  </body>
+</html>

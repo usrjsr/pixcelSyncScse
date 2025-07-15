@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reptiles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[#121212] text-white font-sans">
+
+    <nav class="flex flex-wrap justify-center items-center gap-6 bg-black/60 backdrop-blur-md sticky top-0 z-50 py-4 px-6 text-sm font-medium">
+      <a href="../index.html" class="hover:text-teal-400 transition">Home</a>
+      <a href="./dogs.html" class="hover:text-teal-400 transition">Dogs</a>
+      <a href="./cats.html" class="hover:text-teal-400 transition">Cats</a>
+      <a href="./bird.html" class="hover:text-teal-400 transition">Birds</a>
+      <a href="./reptiles.html" class="hover:text-teal-400 transition">Reptiles</a>
+      <a href="#" class="hover:text-teal-400 transition">Cart</a>
+      <a href="./contact.html" class="hover:text-teal-400 transition">Contact Us</a>
+    </nav>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-8 fish-container">
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-fish="setrix">
+        <img src="../images/sterixcat.jpg" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">Setrix Cat</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-fish="van">
+        <img src="../images/turkishvan.jpg" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">Turkish Van</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-fish="curl">
+        <img src="../images/butterflyfish.jpg" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">American Curl</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+
+      <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-fish="persian">
+        <img src="../images/whitepersian.webp" class="w-full h-40 object-cover rounded-md" />
+        <h2 class="text-xl font-semibold">White Persian</h2>
+        <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+      </div>
+    </section>
+
+    <section class="details hidden max-w-xl mx-auto bg-[#1e1e1e] rounded-lg p-8 mt-12 shadow-md space-y-4 text-center">
+      <img id="detail-img" src="" class="w-full h-64 object-cover rounded-md" />
+      <h2 id="detail-name" class="text-2xl font-bold"></h2>
+      <p><span class="font-semibold">Age:</span> <span id="detail-age"></span></p>
+      <p><span class="font-semibold">Breed:</span> <span id="detail-breed"></span></p>
+      <p><span class="font-semibold">Size:</span> <span id="detail-size"></span></p>
+      <p><span class="font-semibold">Vaccine:</span> <span id="detail-vaccine"></span></p>
+      <p><span class="font-semibold">Location:</span> <span id="detail-location"></span></p>
+      <button class="back-btn mt-6 bg-teal-500 hover:brightness-110 text-white px-6 py-2 rounded transition">Back</button>
+
+      <form class="adoption-form flex flex-col gap-4 mt-6">
+        <h3 class="text-lg font-semibold text-center">Contact for Adoption</h3>
+        <input type="text" placeholder="Your Name" required class="bg-[#2a2a2a] text-white px-4 py-2 rounded" />
+        <input type="email" placeholder="Your Email" required class="bg-[#2a2a2a] text-white px-4 py-2 rounded" />
+        <textarea placeholder="Why do you want to adopt?" required class="bg-[#2a2a2a] text-white px-4 py-2 rounded h-24 resize-none"></textarea>
+        <button type="submit" class="bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded self-end">Submit</button>
+      </form>
+    </section>
+
+    <script>
+      const petData = {
+        setrix: {
+          img: '../images/sterixcat.jpg',
+          name: 'Setrix Cat',
+          age: '2 years',
+          breed: 'Exotic',
+          size: 'Medium',
+          vaccine: 'Yes',
+          location: 'Indonesia'
+        },
+        van: {
+          img: '../images/turkishvan.jpg',
+          name: 'Turkish Van',
+          age: '1.5 years',
+          breed: 'Van Cat',
+          size: 'Large',
+          vaccine: 'Yes',
+          location: 'Turkey'
+        },
+        curl: {
+          img: '../images/butterflyfish.jpg',
+          name: 'American Curl',
+          age: '3 years',
+          breed: 'Curl Cat',
+          size: 'Small',
+          vaccine: 'Yes',
+          location: 'USA'
+        },
+        persian: {
+          img: '../images/whitepersian.webp',
+          name: 'White Persian',
+          age: '4 years',
+          breed: 'Persian',
+          size: 'Medium',
+          vaccine: 'No',
+          location: 'Iran'
+        }
+      };
+
+      const detailElements = {
+        container: document.querySelector('.details'),
+        image: document.getElementById('detail-img'),
+        name: document.getElementById('detail-name'),
+        age: document.getElementById('detail-age'),
+        breed: document.getElementById('detail-breed'),
+        size: document.getElementById('detail-size'),
+        vaccine: document.getElementById('detail-vaccine'),
+        location: document.getElementById('detail-location'),
+        backBtn: document.querySelector('.back-btn')
+      };
+
+      const listView = document.querySelector('.fish-container');
+
+      function showDetails(key) {
+        const pet = petData[key];
+        if (!pet) return alert('Pet not found');
+
+        detailElements.image.src = pet.img;
+        detailElements.name.textContent = pet.name;
+        detailElements.age.textContent = pet.age;
+        detailElements.breed.textContent = pet.breed;
+        detailElements.size.textContent = pet.size;
+        detailElements.vaccine.textContent = pet.vaccine;
+        detailElements.location.textContent = pet.location;
+
+        listView.classList.add('hidden');
+        detailElements.container.classList.remove('hidden');
+      }
+
+      function goBack() {
+        detailElements.container.classList.add('hidden');
+        listView.classList.remove('hidden');
+      }
+
+      document.querySelectorAll('.learn-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const petKey = button.closest('[data-fish]')?.dataset.fish;
+          if (petKey) showDetails(petKey);
+        });
+      });
+
+      detailElements.backBtn.addEventListener('click', goBack);
+    </script>
+  </body>
+</html>

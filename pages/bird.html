@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birds</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#121212] text-white font-sans">
+
+  <nav class="flex flex-wrap justify-center items-center gap-6 bg-black/60 backdrop-blur-md sticky top-0 z-50 py-4 px-6 text-sm font-medium">
+    <a href="../index.html" class="hover:text-teal-400 transition">Home</a>
+    <a href="./dogs.html" class="hover:text-teal-400 transition">Dogs</a>
+    <a href="./cats.html" class="hover:text-teal-400 transition">Cats</a>
+    <a href="./bird.html" class="hover:text-teal-400 transition">Birds</a>
+    <a href="./reptiles.html" class="hover:text-teal-400 transition">Reptiles</a>
+    <a href="#" class="hover:text-teal-400 transition">Cart</a>
+    <a href="./contact.html" class="hover:text-teal-400 transition">Contact Us</a>
+  </nav>
+
+  <section class="bird-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-8">
+    <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-bird="parrot">
+      <img src="../images/parrot.jpeg" class="w-full h-40 object-cover rounded-md" />
+      <h2 class="text-xl font-semibold">Parrot</h2>
+      <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+    </div>
+
+    <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-bird="sparrow">
+      <img src="../images/sparrow.jpg" class="w-full h-40 object-cover rounded-md" />
+      <h2 class="text-xl font-semibold">Sparrow</h2>
+      <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+    </div>
+
+    <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-bird="eagle">
+      <img src="../images/eagle.jpeg.jpg" class="w-full h-40 object-cover rounded-md" />
+      <h2 class="text-xl font-semibold">Eagle</h2>
+      <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+    </div>
+
+    <div class="bg-[#1e1e1e] p-4 rounded-lg shadow-md text-center space-y-4" data-bird="peacock">
+      <img src="../images/peacock.jpg" class="w-full h-40 object-cover rounded-md" />
+      <h2 class="text-xl font-semibold">Peacock</h2>
+      <button class="learn-btn bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Learn More</button>
+    </div>
+  </section>
+
+  <section class="details hidden max-w-xl mx-auto bg-[#1e1e1e] rounded-lg p-8 mt-12 shadow-md space-y-4">
+    <button class="back-btn text-sm text-teal-400 hover:underline">← Back to List</button>
+    <img id="detail-img" src="" class="w-full h-64 object-cover rounded-md" />
+    <h2 id="detail-name" class="text-2xl font-bold text-center"></h2>
+    <ul class="space-y-1">
+      <li><strong>Age:</strong> <span id="detail-age"></span></li>
+      <li><strong>Breed:</strong> <span id="detail-breed"></span></li>
+      <li><strong>Size:</strong> <span id="detail-size"></span></li>
+      <li><strong>Vaccinated:</strong> <span id="detail-vaccine"></span></li>
+      <li><strong>Location:</strong> <span id="detail-location"></span></li>
+    </ul>
+
+    <form class="adoption-form space-y-4 mt-6">
+      <h3 class="text-lg font-semibold">Contact for Adoption</h3>
+      <input type="text" placeholder="Your Name" required class="w-full px-4 py-2 rounded bg-[#2a2a2a] text-white" />
+      <input type="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded bg-[#2a2a2a] text-white" />
+      <textarea placeholder="Why do you want to adopt?" required class="w-full px-4 py-2 rounded bg-[#2a2a2a] text-white"></textarea>
+      <button type="submit" class="bg-teal-500 hover:brightness-110 text-white px-4 py-2 rounded transition">Submit</button>
+    </form>
+  </section>
+
+  <script>
+    const birdData = {
+      parrot: {
+        name: "Parrot",
+        img: "../images/parrot.jpeg",
+        age: "2 years",
+        breed: "Macaw",
+        size: "Medium",
+        vaccine: "Yes",
+        location: "Delhi"
+      },
+      sparrow: {
+        name: "Sparrow",
+        img: "../images/sparrow.jpg",
+        age: "1 year",
+        breed: "House Sparrow",
+        size: "Small",
+        vaccine: "No",
+        location: "Mumbai"
+      },
+      eagle: {
+        name: "Eagle",
+        img: "../images/eagle.jpeg.jpg",
+        age: "3 years",
+        breed: "Golden Eagle",
+        size: "Large",
+        vaccine: "Yes",
+        location: "Manali"
+      },
+      peacock: {
+        name: "Peacock",
+        img: "../images/peacock.jpg",
+        age: "4 years",
+        breed: "Indian Peacock",
+        size: "Large",
+        vaccine: "Yes",
+        location: "Jaipur"
+      }
+    };
+
+    const container = document.querySelector('.bird-container');
+    const details = document.querySelector('.details');
+    const backBtn = document.querySelector('.back-btn');
+
+    function populateDetails(data) {
+      document.getElementById('detail-img').src = data.img;
+      document.getElementById('detail-name').textContent = data.name;
+      document.getElementById('detail-age').textContent = data.age;
+      document.getElementById('detail-breed').textContent = data.breed;
+      document.getElementById('detail-size').textContent = data.size;
+      document.getElementById('detail-vaccine').textContent = data.vaccine;
+      document.getElementById('detail-location').textContent = data.location;
+    }
+
+    function showDetails(birdKey) {
+      const data = birdData[birdKey];
+      if (!data) return;
+      populateDetails(data);
+      container.classList.add('hidden');
+      details.classList.remove('hidden');
+    }
+
+    document.querySelectorAll('.learn-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const key = button.closest('[data-bird]')?.dataset.bird;
+        if (key) showDetails(key);
+      });
+    });
+
+    backBtn.addEventListener('click', () => {
+      details.classList.add('hidden');
+      container.classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>

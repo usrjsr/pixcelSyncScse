@@ -4,73 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PetPals</title>
-    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: -1;
+        pointer-events: none;
+      }
+    </style>
   </head>
-  <body>
-    <div class="navBar">
-      <a href="#">Home</a>
-      <a href="dogs.html">Dogs</a>
-      <a href="cats.html">Cats</a>
-      <a href="bird.html">Birds</a>
-      <a href="reptiles.html">Reptiles</a>
-      <a href="#">Cart</a>
-      <a href="#">Contact Us</a>
-    </div>
+  <body class="bg-[#121212] text-white font-sans overflow-x-hidden">
 
-    <div class="herosection">
-      
-      <button class="arrow left">&#10094;</button>
-      <button class="arrow right">&#10095;</button>
+    <nav class="flex flex-wrap justify-center items-center gap-6 bg-black/60 backdrop-blur-md sticky top-0 z-50 py-4 px-6 text-sm font-medium">
+      <a href="#" class="hover:text-teal-400 transition">Home</a>
+      <a href="pages/dogs.html" class="hover:text-teal-400 transition">Dogs</a>
+      <a href="pages/cats.html" class="hover:text-teal-400 transition">Cats</a>
+      <a href="pages/bird.html" class="hover:text-teal-400 transition">Birds</a>
+      <a href="pages/reptiles.html" class="hover:text-teal-400 transition">Reptiles</a>
+      <a href="#" class="hover:text-teal-400 transition">Cart</a>
+      <a href="pages/contact.html" class="hover:text-teal-400 transition">Contact Us</a>
+    </nav>
 
-      <div class="heroImage"><img src="heroimage5.png" /></div>
-      <div class="heroImage"><img src="heroimage2.png" /></div>
-      <div class="heroImage"><img src="heroimage4.jpg" /></div>
-      
-      
-      
-    </div>
-
-    <div class="petTiles">
-      <div class="Dogs"><img src="dogTileImg.webp" /></div>
-      <div class="Cats"><img src="catTileImg.webp" /></div>
-      <div class="Reptiles"><img src="turtleTileImg.jpg" /></div>
-      <div class="Birds"><img src="birdTileImg.jpg" /></div>
-    </div>
-
-    <div class="ContactUs">
-      <a href="contactUs.html"><button>Contact Us</button></a>
-    </div>
+    <section class="relative h-[70vh] overflow-hidden">
+      <button class="arrow left absolute top-1/2 left-6 -translate-y-1/2 text-3xl bg-black/60 text-white p-3 rounded-full z-10 hover:bg-black/80 transition">&#10094;</button>
+      <button class="arrow right absolute top-1/2 right-6 -translate-y-1/2 text-3xl bg-black/60 text-white p-3 rounded-full z-10 hover:bg-black/80 transition">&#10095;</button>
+      <div class="heroImage absolute inset-0 opacity-0 transition-opacity duration-500">
+        <img src="images/heroimage5.png" class="w-full h-full object-cover brightness-50" />
+      </div>
+      <div class="heroImage absolute inset-0 opacity-0 transition-opacity duration-500">
+        <img src="images/heroimage2.png" class="w-full h-full object-cover brightness-50" />
+      </div>
+      <div class="heroImage absolute inset-0 opacity-0 transition-opacity duration-500">
+        <img src="images/heroimage4.jpg" class="w-full h-full object-cover brightness-50" />
+      </div>
+    </section>
 
     
-      <div class="footer">
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <a href="#">Adopt a Pet</a>
-          <a href="#">Dogs</a>
-          <a href="#">Cats</a>
-          <a href="#">Contact Us</a>
-        </div>
-        <div class="footer-section">
-          <h4>About Us</h4>
-          <a href="#">Our Mission</a>
-          <a href="#">Team</a>
-          <a href="#">Volunteer</a>
-        </div>
-        <div class="footer-section">
-          <h4>Help & Support</h4>
-          <a href="#">FAQs</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Contact Support</a>
-        </div>
-        <div class="footer-section">
-          <h4>Connect</h4>
-          <a href="#">Facebook</a>
-          <a href="#">Instagram</a>
-          <a href="#">YouTube</a>
-        </div>
-      
-      
-    </div>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-8">
+      <a href="pages/dogs.html" class="block relative pb-[75%] bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover:-translate-y-1 cursor-pointer group">
+        <img src="images/dogTileImg.webp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+        <div class="absolute bottom-0 left-0 w-full bg-black/70 text-center py-2 uppercase font-semibold">Dogs</div>
+      </a>
+
+      <a href="pages/cats.html" class="block relative pb-[75%] bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover:-translate-y-1 cursor-pointer group">
+        <img src="images/catTileImg.webp" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+        <div class="absolute bottom-0 left-0 w-full bg-black/70 text-center py-2 uppercase font-semibold">Cats</div>
+      </a>
+
+      <a href="pages/reptiles.html" class="block relative pb-[75%] bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover:-translate-y-1 cursor-pointer group">
+        <img src="images/turtleTileImg.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+        <div class="absolute bottom-0 left-0 w-full bg-black/70 text-center py-2 uppercase font-semibold">Reptiles</div>
+      </a>
+
+      <a href="pages/bird.html" class="block relative pb-[75%] bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition hover:-translate-y-1 cursor-pointer group">
+        <img src="images/birdTileImg.jpg" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+        <div class="absolute bottom-0 left-0 w-full bg-black/70 text-center py-2 uppercase font-semibold">Birds</div>
+      </a>
+    </section>
+
+
+    <section class="flex justify-center items-center bg-[#1e1e1e] py-16 px-6">
+      <a href="contactUs.html" class="bg-teal-500 hover:brightness-110 text-white px-6 py-3 rounded-md font-medium text-lg transition transform hover:scale-105 animate-pulse">
+        Contact Us
+      </a>
+    </section>
+
+    <footer class="bg-[#151515] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-8 py-12 text-sm">
+      <div>
+        <h4 class="text-teal-400 font-semibold text-lg mb-4">Quick Links</h4>
+        <a href="#" class="block mb-2 hover:text-teal-400">Adopt a Pet</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Dogs</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Cats</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Contact Us</a>
+      </div>
+      <div>
+        <h4 class="text-teal-400 font-semibold text-lg mb-4">About Us</h4>
+        <a href="#" class="block mb-2 hover:text-teal-400">Our Mission</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Team</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Volunteer</a>
+      </div>
+      <div>
+        <h4 class="text-teal-400 font-semibold text-lg mb-4">Help & Support</h4>
+        <a href="#" class="block mb-2 hover:text-teal-400">FAQs</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Privacy Policy</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Contact Support</a>
+      </div>
+      <div>
+        <h4 class="text-teal-400 font-semibold text-lg mb-4">Connect</h4>
+        <a href="#" class="block mb-2 hover:text-teal-400">Facebook</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">Instagram</a>
+        <a href="#" class="block mb-2 hover:text-teal-400">YouTube</a>
+      </div>
+    </footer>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -81,7 +110,10 @@
 
         function showSlide(index) {
           slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
+            slide.classList.toggle("opacity-100", i === index);
+            slide.classList.toggle("opacity-0", i !== index);
+            slide.classList.toggle("z-0", i !== index);
+            slide.classList.toggle("z-10", i === index);
           });
         }
 
@@ -95,7 +127,6 @@
           showSlide(current);
         });
 
-        // Initialize
         showSlide(current);
       });
     </script>
